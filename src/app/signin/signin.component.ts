@@ -17,20 +17,12 @@ export class SigninComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    gapi.signin2.render('my-signin2', {
-      'scope': 'profile email',
-      'onsuccess': param => this.onSignIn(param)
+    gapi.load('auth2', () => {
+      gapi.auth2.init({
+        client_id: '204566820246-67tser74gtv78uiaskm945enn5b5agl2.apps.googleusercontent.com',
+        scope: 'profile email'
+      });
     });
-  }
-
-  public onSignIn(googleUser) {
-    var basicProfile = googleUser.getBasicProfile();
-    this.profile = new Profile();
-    this.profile.id = basicProfile.getId();
-    this.profile.name = basicProfile.getName();
-    this.profile.imageUrl = basicProfile.getImageUrl();
-    var response = googleUser.getAuthResponse();
-    this.signinService.signin(response.token).subscribe();
   }
 
   public signOut() {
@@ -39,6 +31,16 @@ export class SigninComponent implements AfterViewInit {
       console.log('User signed out.');
     });
     this.profile = null;
+  }
+
+  public signIn() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    var numCallback = (resp: any)  => {
+      this.signinService.signin(resp.code).subscribe();
+    }
+    auth2.grantOfflineAccess({
+      redirect_URI: 'postmessage'
+    }).then(numCallback);
   }
 
 }

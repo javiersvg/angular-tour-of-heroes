@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class SigninService {
-  private signinUrl = 'api/login';  // URL to web api
+  private signinUrl = 'api/login/google';  // URL to web api
 
   constructor(
     private http: HttpClient,
@@ -21,9 +21,9 @@ export class SigninService {
   }
 
   public signin(token: string): Observable<any> {
-    let Params = new HttpParams();
-    Params.append('token', token);
-    return this.http.post<any>(this.signinUrl, httpOptions, { params: Params}).pipe(
+    let params = new HttpParams();
+    params = params.append('code', token);
+    return this.http.get(this.signinUrl, {params: params}).pipe(
       tap(_ => this.log(`singin success`)),
       catchError(this.handleError<any>('signin'))
     );
