@@ -22,7 +22,8 @@ export class SigninService {
 
   public signin(token: string): Observable<any> {
     let params = new HttpParams();
-    params = params.append('code', token);
+    params = params.append('code', token)
+      .append('redirect_uri', 'http://localhost:4200');
     return this.http.get(this.signinUrl, {params: params}).pipe(
       tap(_ => this.log(`singin success`)),
       catchError(this.handleError<any>('signin'))
