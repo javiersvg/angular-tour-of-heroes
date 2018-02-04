@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
 import { MessageService } from './message.service';
-import { HalHeros } from '../hal.hero';
+import { HalHeros } from './hal.heros';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,9 +27,15 @@ export class HeroService {
     return this.http.get<HalHeros>(this.heroesUrl)
       .pipe(
         map(result => result._embedded.heroes),
+        tap(heroes => heroes.forEach((hero) => this.setId(hero))),
         tap(heroes => this.log(`fetched heroes`)),
         catchError(this.handleError('getHeroes', []))
       );
+  }
+
+  private setId(hero: Hero) {
+    var items = hero._links.self.href.split("/");
+    hero.id = items[items.length - 1];
   }
 
   /**
@@ -58,9 +64,10 @@ export class HeroService {
   }
 
   /** GET hero by id. Will 404 if id not found */
-  getHero(id: number): Observable<Hero> {
+  getHero(id: string): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
+      tap(hero => this.setId(hero)),
       tap(_ => this.log(`fetched hero id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
@@ -68,7 +75,8 @@ export class HeroService {
 
   /** PUT: update the hero on the server */
   updateHero (hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+    const url = `${this.heroesUrl}/${hero.id}`;
+    return this.http.put(url, hero, httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
     );
@@ -83,8 +91,8 @@ export class HeroService {
   }
 
   /** DELETE: delete the hero from the server */
-  deleteHero (hero: Hero | number): Observable<Hero> {
-    const id = typeof hero === 'number' ? hero : hero.id;
+  deleteHero (hero: Hero | string): Observable<Hero> {
+    const id = typeof hero === 'string' ? hero : hero.id;
     const url = `${this.heroesUrl}/${id}`;
 
     return this.http.delete<Hero>(url, httpOptions).pipe(
@@ -99,7 +107,8 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Hero[]>(`api/heroes/?name=${term}`).pipe(
+    return this.http.get<HalHeros>(`api/heroes/search/findByNameLike?name=${term}`).pipe(
+      map(result => result._embedded.heroes),
       tap(_ => this.log(`found heroes matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );

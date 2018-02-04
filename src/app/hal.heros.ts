@@ -1,4 +1,4 @@
-import { Hero } from "./app/hero";
+import { Hero } from "./hero";
 
 export class HalHeros {
     _embedded: { heroes: Hero[]};

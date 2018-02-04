@@ -1,4 +1,7 @@
+import { Url } from "url";
+
 export class Hero {
-    id: number;
+    id: string;
     name: string;
+    _links: { self: Url };
   }
