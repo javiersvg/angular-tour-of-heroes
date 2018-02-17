@@ -1,7 +1,8 @@
 <div id="search-component">
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <input type="search" placeholder="Search Hero" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-icon matSuffix>search</mat-icon>
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option" routerLink="/detail/{{option.id}}">
           {{ option.name }}
@@ -9,5 +10,4 @@
       </mat-autocomplete>
     </mat-form-field>
   </form>
-
 </div>
