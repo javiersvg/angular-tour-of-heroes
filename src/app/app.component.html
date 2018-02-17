@@ -1,10 +1,20 @@
-<h1>{{title}}</h1>
-<div>
+<mat-toolbar color="primary">
+  <span><h1>{{title}}</h1></span>
+  <span class="spacer"></span>
   <app-signin></app-signin>
-</div>
-<nav>
-  <a mat-button routerLink="/dashboard">Dashboard</a>
-  <a mat-button routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
+</mat-toolbar>
+<mat-card>
+  <div>
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link
+           *ngFor="let link of navLinks"
+           [routerLink]="link.path"
+           routerLinkActive #rla="routerLinkActive"
+           [active]="rla.isActive">
+          {{link.label}}
+        </a>
+      </nav>
+  </div>
+  <router-outlet></router-outlet>
+</mat-card>
 <app-messages></app-messages>

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 
+export class Link {
+  constructor(public label: string, public path: string) {}
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +11,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+
+  navLinks = [
+    new Link("Dashboard", "dashboard"),
+    new Link("Heroes", "heroes")
+  ]
 }
