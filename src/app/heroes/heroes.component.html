@@ -1,10 +1,10 @@
 <h2>My Heroes</h2>
 <div>
-  <label>Hero name:
-    <input #heroName (keyup.enter)="add(heroName.value); heroName.value=''"/>
-  </label>
+  <mat-form-field >
+    <input #heroName matInput placeholder="Hero name" (keyup.enter)="add(heroName.value); heroName.value=''">
+  </mat-form-field>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
+  <button mat-button (click)="add(heroName.value); heroName.value=''">
     add
   </button>
 </div>

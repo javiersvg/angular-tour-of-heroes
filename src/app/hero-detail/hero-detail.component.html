@@ -3,12 +3,12 @@
     <h2>{{ hero.name | uppercase }} Details</h2>
     <div><span>id: </span>{{hero.id}}</div>
     <div>
-      <label>name:
-        <input [(ngModel)]="hero.name" placeholder="name"/>
-      </label>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="hero.name" placeholder="name">
+      </mat-form-field>
     </div>
   
   </div>
 
-  <button (click)="save()">save</button>
-  <button (click)="goBack()">go back</button>
+  <button mat-button (click)="save()">save</button>
+  <button mat-button (click)="goBack()">go back</button>
