@@ -15,8 +15,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { SigninComponent } from './signin/signin.component';
 import { SigninService } from './signin.service';
-import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListModule, MatAutocompleteModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListMo
     HttpClientModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListModule
+    MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListModule, MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   providers: [ HeroService, MessageService, SigninService ],
   bootstrap: [AppComponent]
