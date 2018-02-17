@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -107,8 +107,11 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<HalHeros>(`api/heroes/search/findByNameLike?name=${term}`).pipe(
+    let params = new HttpParams().set('name', term);
+    const url = `${this.heroesUrl}/search/findByNameLike`;
+    return this.http.get<HalHeros>(url, {params: params}).pipe(
       map(result => result._embedded.heroes),
+      tap(heroes => heroes.forEach((hero) => this.setId(hero))),
       tap(_ => this.log(`found heroes matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
