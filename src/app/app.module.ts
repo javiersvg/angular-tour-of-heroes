@@ -16,7 +16,15 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { SigninComponent } from './signin/signin.component';
 import { SigninService } from './signin.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListModule, MatAutocompleteModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import {MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -37,7 +45,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListModule, MatAutocompleteModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatInputModule,
+    MatIconModule,
+    MatListModule,
+    MatAutocompleteModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatGridListModule,
     ReactiveFormsModule
   ],
   providers: [ HeroService, MessageService, SigninService ],
