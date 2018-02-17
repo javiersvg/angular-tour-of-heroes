@@ -1,13 +1,13 @@
 <div id="search-component">
-  <mat-form-field class="example-full-width">
-    <input #searchBox matInput id="search-box" placeholder="Hero Search" (keyup)="search(searchBox.value)" />
-  </mat-form-field>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option" routerLink="/detail/{{option.id}}">
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
 
-  <ul class="search-result">
-    <li *ngFor="let hero of heroes$ | async" >
-      <a routerLink="/detail/{{hero.id}}">
-        {{hero.name}}
-      </a>
-    </li>
-  </ul>
 </div>
