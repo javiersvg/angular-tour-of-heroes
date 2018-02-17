@@ -16,7 +16,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { SigninComponent } from './signin/signin.component';
 import { SigninService } from './signin.service';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatTabsModule, MatInputModule } from '@angular/material';
+import {MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListModule } from '@angular/material';
 
 
 @NgModule({
@@ -36,7 +36,7 @@ import {MatButtonModule, MatTabsModule, MatInputModule } from '@angular/material
     HttpClientModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatTabsModule, MatInputModule
+    MatButtonModule, MatTabsModule, MatInputModule, MatIconModule, MatListModule
   ],
   providers: [ HeroService, MessageService, SigninService ],
   bootstrap: [AppComponent]

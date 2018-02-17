@@ -9,11 +9,14 @@
   </button>
 </div>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes; let i = index">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{i+1}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-    (click)="delete(hero)">x</button>
-  </li>
+  <mat-nav-list>
+    <mat-list-item *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+      <button mat-button title="delete hero" (click)="delete(hero)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-nav-list>
 </ul>
