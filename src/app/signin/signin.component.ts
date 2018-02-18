@@ -36,7 +36,9 @@ export class SigninComponent implements AfterViewInit {
   public signIn() {
     var auth2 = gapi.auth2.getAuthInstance();
     var numCallback = (resp: any)  => {
-      this.signinService.signin(resp.code).subscribe();
+      this.signinService.signin(resp.code).subscribe(profile => {
+        this.profile = profile
+      });
     }
     auth2.grantOfflineAccess({
       redirect_URI: 'postmessage'
