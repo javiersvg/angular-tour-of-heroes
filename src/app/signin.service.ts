@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, mergeMap } from 'rxjs/operators';
 
 import { MessageService } from "./message.service";
+import { Profile } from './profile';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,13 +21,14 @@ export class SigninService {
 
   }
 
-  public signin(token: string): Observable<any> {
+  public signin(token: string): Observable<Profile> {
     let params = new HttpParams();
     params = params.append('code', token)
       .append('redirect_uri', 'http://localhost:4200');
-    return this.http.get(this.signinUrl, {params: params}).pipe(
+    return this.http.get<Profile>(this.signinUrl, {params: params}).pipe(
+      mergeMap<any, Profile>(_ => {return this.http.get<Profile>('/api/user')}),
       tap(_ => this.log(`singin success`)),
-      catchError(this.handleError<any>('signin'))
+      catchError(this.handleError<Profile>('signin'))
     );
   }
   
