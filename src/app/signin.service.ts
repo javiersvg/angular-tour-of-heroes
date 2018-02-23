@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 import { catchError, map, tap, mergeMap } from 'rxjs/operators';
 
 import { MessageService } from "./message.service";
@@ -18,13 +19,32 @@ export class SigninService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService) {
-
+      gapi.load('auth2', () => {
+        gapi.auth2.init({
+          client_id: '204566820246-67tser74gtv78uiaskm945enn5b5agl2.apps.googleusercontent.com',
+          scope: 'profile email'
+        });
+      });
   }
 
-  public signin(token: string): Observable<Profile> {
-    let params = new HttpParams();
-    params = params.append('code', token)
+  public signIn(): Observable<Profile> {
+    return this.http.get<Profile>('/api/user').pipe(
+      catchError(_ => {return this.signInGoogle()})
+    )
+  }
+
+  signInGoogle(): Observable<Profile> {
+    var auth2 = gapi.auth2.getAuthInstance();
+    return fromPromise(auth2.grantOfflineAccess()).pipe(
+      mergeMap((resp: any)  => { return this.signInBackEnd(resp.code);})
+    );
+  }
+
+  private signInBackEnd(code: string): Observable<Profile> {
+    let params = new HttpParams()
+    .append('code', code)
       .append('redirect_uri', 'http://localhost:4200');
+
     return this.http.get<Profile>(this.signinUrl, {params: params}).pipe(
       mergeMap<any, Profile>(_ => {return this.http.get<Profile>('/api/user')}),
       tap(_ => this.log(`singin success`)),
@@ -32,6 +52,17 @@ export class SigninService {
     );
   }
   
+  public signOut(): Observable<Profile> {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    return this.http.get<Profile>('/api/logout').pipe(
+      tap(_ => this.log(`sign out success`)),
+      catchError(this.handleError<Profile>('signout'))
+    );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
