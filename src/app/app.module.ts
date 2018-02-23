@@ -25,6 +25,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -54,6 +55,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatToolbarModule,
     MatGridListModule,
+    MatMenuModule,
     ReactiveFormsModule
   ],
   providers: [ HeroService, MessageService, SigninService ],

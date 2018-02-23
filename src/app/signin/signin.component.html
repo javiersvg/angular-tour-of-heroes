@@ -2,8 +2,10 @@
   <a mat-button id="my-signin2" (click)="signIn()"><mat-icon class="icon">account_circle</mat-icon> Sign In</a>
 </div>
 <div *ngIf="profile">
-  <h2>Hello {{ profile.name}}</h2>
-  <div>
-    <a mat-button href="" (click)="signOut()">Sign out</a>
-  </div>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <img mat-card-avatar  src="{{profile.picture}}"> {{profile.username}}
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="signOut()">Sign Out</button>
+  </mat-menu>
 </div>
