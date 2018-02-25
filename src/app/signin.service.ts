@@ -28,9 +28,7 @@ export class SigninService {
   }
 
   public signIn(): Observable<Profile> {
-    return this.http.get<Profile>('/api/user').pipe(
-      catchError(_ => {return this.signInGoogle()})
-    )
+    return this.signInGoogle();
   }
 
   signInGoogle(): Observable<Profile> {
