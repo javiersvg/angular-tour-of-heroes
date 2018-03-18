@@ -22,6 +22,12 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Running docker container
+
+Run `docker run -d --link="tour-of-heroes" -p 80:80 --name="angular-tour-of-heroes" javiersvg/angular-tour-of-heroes`
+and open [localhost](https://localhost) or if you are using docker for windows create a new entry in your hosts file in
+`C:\Windows\System32\drivers\etc` for `192.168.99.100      docker` and access [docker](https://docker)
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
