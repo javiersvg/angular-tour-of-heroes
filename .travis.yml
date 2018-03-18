@@ -4,8 +4,15 @@ language: node_js
 node_js:
   - "9.3"
 
-before_script:
-  - npm install -g @angular/cli
-
 script:
-  - ng build
+  - npm run build
+
+deploy:
+  provider: releases
+  api_key:
+    secure: ${GITHUB_TOKEN}
+  file_glob: true
+  file: dist/*
+  skip_cleanup: true
+  on:
+    tags: true
