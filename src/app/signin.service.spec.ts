@@ -1,11 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SigninService } from './signin.service';
+import { MessageService } from './message.service';
 
 describe('SigninService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SigninService]
+      imports: [HttpClientModule],
+      providers: [SigninService, MessageService]
     });
   });
 
