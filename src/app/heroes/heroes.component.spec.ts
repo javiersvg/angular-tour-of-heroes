@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { AppRoutingModule } from '../app-routing.module';
@@ -38,12 +40,14 @@ describe('HeroesComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        BrowserAnimationsModule,
         MatDividerModule,
         MatIconModule,
         MatFormFieldModule,
         MatGridListModule,
         MatListModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatInputModule
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },
