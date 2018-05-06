@@ -19,6 +19,7 @@ module.exports = function (config) {
       reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
     },
+    files: ['https://apis.google.com/js/platform.js'],
     angularCli: {
       environment: 'dev'
     },
@@ -28,6 +29,7 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    singleRun: false,
+    crossOriginAttribute: false
   });
 };

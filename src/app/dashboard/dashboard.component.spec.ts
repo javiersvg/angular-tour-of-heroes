@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -10,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 
 import { DashboardComponent } from './dashboard.component';
 import { HeroSearchComponent } from '../hero-search/hero-search.component';
@@ -40,10 +42,12 @@ describe('DashboardComponent', () => {
         MatFormFieldModule,
         MatDividerModule,
         MatListModule,
+        MatInputModule,
         AppRoutingModule,
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
+        BrowserAnimationsModule,
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },
