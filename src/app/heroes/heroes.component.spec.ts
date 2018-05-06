@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +23,7 @@ import { HeroSearchComponent } from '../hero-search/hero-search.component';
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
 import { HeroService } from "../hero.service";
+import { InMemoryDataService }  from '../in-memory-data.service';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -41,6 +43,9 @@ describe('HeroesComponent', () => {
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        HttpClientInMemoryWebApiModule.forRoot(
+          InMemoryDataService, { dataEncapsulation: false }
+        ),
         MatDividerModule,
         MatIconModule,
         MatFormFieldModule,

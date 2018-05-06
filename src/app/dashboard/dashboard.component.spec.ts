@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -22,6 +23,7 @@ import { HeroesComponent } from '../heroes/heroes.component';
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
 import { HeroService } from "../hero.service";
+import { InMemoryDataService }  from '../in-memory-data.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -36,6 +38,14 @@ describe('DashboardComponent', () => {
         HeroesComponent
       ],
       imports: [
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        HttpClientInMemoryWebApiModule.forRoot(
+          InMemoryDataService, { dataEncapsulation: false }
+        ),
         MatGridListModule,
         MatAutocompleteModule,
         MatIconModule,
@@ -43,11 +53,6 @@ describe('DashboardComponent', () => {
         MatDividerModule,
         MatListModule,
         MatInputModule,
-        AppRoutingModule,
-        ReactiveFormsModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },
