@@ -17,8 +17,8 @@ describe('SigninComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SigninComponent ],
-      imports: [ MatIconModule,MatButtonModule,MatMenuModule,HttpClientModule ],
-      providers: [ SigninService,MessageService ]
+      imports: [ MatIconModule, MatButtonModule, MatMenuModule, HttpClientModule ],
+      providers: [ SigninService, MessageService ]
     })
     .compileComponents();
   }));

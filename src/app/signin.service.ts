@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { fromPromise } from 'rxjs/observable/fromPromise';
 import { catchError, map, tap, mergeMap } from 'rxjs/operators';
 
-import { MessageService } from "./message.service";
+import { MessageService } from './message.service';
 import { Profile } from './profile';
 
 const httpOptions = {
@@ -32,26 +32,26 @@ export class SigninService {
   }
 
   signInGoogle(): Observable<Profile> {
-    var auth2 = gapi.auth2.getAuthInstance();
+    const auth2 = gapi.auth2.getAuthInstance();
     return fromPromise(auth2.grantOfflineAccess()).pipe(
-      mergeMap((resp: any)  => { return this.signInBackEnd(resp.code);})
+      mergeMap((resp: any)  => this.signInBackEnd(resp.code))
     );
   }
 
   private signInBackEnd(code: string): Observable<Profile> {
-    let params = new HttpParams()
+    const params = new HttpParams()
     .append('code', code)
       .append('redirect_uri', 'http://localhost:4200');
 
     return this.http.get<Profile>(this.signinUrl, {params: params}).pipe(
-      mergeMap<any, Profile>(_ => {return this.http.get<Profile>('/api/user')}),
+      mergeMap<any, Profile>(_ => this.http.get<Profile>('/api/user')),
       tap(_ => this.log(`singin success`)),
       catchError(this.handleError<Profile>('signin'))
     );
   }
-  
+
   public signOut(): Observable<Profile> {
-    var auth2 = gapi.auth2.getAuthInstance();
+    const auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
@@ -80,7 +80,7 @@ export class SigninService {
       return of(result as T);
     };
   }
-  
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add('HeroService: ' + message);

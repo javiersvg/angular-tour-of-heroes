@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'Tour of Heroes';
 
   navLinks = [
-    new Link("DASHBOARD", "dashboard"),
-    new Link("HEROES", "heroes")
-  ]
+    new Link('DASHBOARD', 'dashboard'),
+    new Link('HEROES', 'heroes')
+  ];
 }

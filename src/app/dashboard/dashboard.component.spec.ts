@@ -22,7 +22,7 @@ import { HeroesComponent } from '../heroes/heroes.component';
 
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
-import { HeroService } from "../hero.service";
+import { HeroService } from '../hero.service';
 import { InMemoryDataService }  from '../in-memory-data.service';
 
 describe('DashboardComponent', () => {
@@ -31,7 +31,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         DashboardComponent,
         HeroSearchComponent,
         HeroDetailComponent,
