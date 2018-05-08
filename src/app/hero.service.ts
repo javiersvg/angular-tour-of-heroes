@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -34,7 +34,7 @@ export class HeroService {
   }
 
   private setId(hero: Hero) {
-    var items = hero._links.self.href.split("/");
+    const items = hero._links.self.href.split('/');
     hero.id = items[items.length - 1];
   }
 
@@ -57,7 +57,7 @@ export class HeroService {
       return of(result as T);
     };
   }
-  
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add('HeroService: ' + message);
@@ -85,8 +85,8 @@ export class HeroService {
   /** POST: add a new hero to the server */
   addHero (hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
-      tap(hero => this.setId(hero)),
-      tap((hero: Hero) => this.log(`added hero w/ id=${hero.id}`)),
+      tap(savedHero => this.setId(savedHero)),
+      tap((savedHero: Hero) => this.log(`added hero w/ id=${savedHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -108,7 +108,7 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    let params = new HttpParams().set('name', term);
+    const params = new HttpParams().set('name', term);
     const url = `${this.heroesUrl}/search/findByNameLike`;
     return this.http.get<HalHeros>(url, {params: params}).pipe(
       map(result => result._embedded.heroes),

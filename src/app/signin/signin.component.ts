@@ -1,6 +1,6 @@
 import { Component, ElementRef, AfterViewInit, Input } from '@angular/core';
-import { SigninService } from "../signin.service";
-import { Profile } from "../profile";
+import { SigninService } from '../signin.service';
+import { Profile } from '../profile';
 
 @Component({
   selector: 'app-signin',
@@ -21,7 +21,7 @@ export class SigninComponent {
 
   public signIn() {
     this.signinService.signIn().subscribe(profile => {
-      this.profile = profile
+      this.profile = profile;
     });
   }
 

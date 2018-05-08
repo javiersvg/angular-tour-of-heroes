@@ -20,7 +20,7 @@ import { HeroSearchComponent } from '../hero-search/hero-search.component';
 
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
-import { HeroService } from "../hero.service";
+import { HeroService } from '../hero.service';
 import { InMemoryDataService } from '../in-memory-data.service';
 
 describe('HeroDetailComponent', () => {
@@ -29,13 +29,13 @@ describe('HeroDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         HeroDetailComponent,
         DashboardComponent,
         HeroesComponent,
         HeroSearchComponent
       ],
-      imports: [ 
+      imports: [
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,

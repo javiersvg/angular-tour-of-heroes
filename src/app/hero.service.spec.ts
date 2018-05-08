@@ -7,7 +7,7 @@ import { MessageService } from './message.service';
 describe('HeroService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [HeroService,MessageService],
+      providers: [HeroService, MessageService],
       imports: [ HttpClientModule ]
     });
   });
