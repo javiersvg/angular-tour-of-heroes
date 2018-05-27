@@ -1,19 +1,5 @@
 /* HeroDetailComponent's private CSS styles */
 .details {
   font-family: Roboto,"Helvetica Neue",sans-serif;
-}
-header {
-  height: 100px;
-  display: flex;
-}
-header span {
-  align-self: flex-end;
-  text-align: center;
-  width: 100%
-}
-.id {
-  padding: 7px;
-}
-mat-form-field {
-  padding: 7px;
+  padding: 12px;
 }
