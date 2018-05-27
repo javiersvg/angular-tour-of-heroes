@@ -1,7 +1,6 @@
-import { Url } from 'url';
+import { HalElement } from './hal.element';
 
-export class Hero {
+export class Hero extends HalElement {
     id: string;
     name: string;
-    _links: { self: Url };
   }
