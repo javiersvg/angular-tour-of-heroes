@@ -1,14 +1,10 @@
 <div *ngIf="hero" class="details">
-  <header><span>{{ hero.name | uppercase }} Details</span></header>
-  <mat-divider></mat-divider>
-  <div class="id">
-    <mat-icon class="icon">account_circle</mat-icon>
-    <span>id: </span>{{hero.id}}</div>
+  <h2>{{ hero.name | uppercase }} Details</h2>
   <div>
     <mat-form-field>
       <input matInput [(ngModel)]="hero.name" placeholder="name">
     </mat-form-field>
   </div>
+  <button mat-button (click)="save()">save</button>
+  <button mat-button (click)="goBack()">go back</button>
 </div>
-<button mat-button (click)="save()">save</button>
-<button mat-button (click)="goBack()">go back</button>
