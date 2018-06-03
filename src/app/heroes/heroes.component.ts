@@ -3,7 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-heroes',
@@ -50,17 +50,18 @@ export class HeroesComponent implements OnInit {
 @Component({
   selector: 'new-hero-dialog',
   template: `
+            <h2>New Hero</h2>
             <form [formGroup]="heroForm">
-              <div class="form-group">
-                <label class="center-block">Name:
-                  <input class="form-control" formControlName="name">
-                </label>
+              <div *ngFor="let field of fields" class="form-group">
+                <mat-form-field>
+                  <input matInput [type]="field.type" class="form-control" [formControlName]="field.key"  [placeholder]="field.key">
+                </mat-form-field>
               </div>
             </form>
             `
 })
 export class NewHeroDialog {
-
+  fields = [];
   heroForm: FormGroup;
 
   constructor(
@@ -70,8 +71,21 @@ export class NewHeroDialog {
     }
 
   createForm(): void {
-    this.heroForm = this.fb.group(new Hero());
+    const controls: any = {};
+    this.fields.push(new FormField('name'));
+    this.fields.forEach(field => {
+      controls[field.key] = new FormControl('');
+    });
+    this.heroForm = this.fb.group(controls);
   }
+}
 
+class FormField {
+  key: string;
+  type: string;
 
+  constructor(key:string, type?: string) {
+    this.key = key;
+    this.type = type || '';
+  }
 }
