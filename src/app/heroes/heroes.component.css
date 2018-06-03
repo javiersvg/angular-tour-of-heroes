@@ -6,3 +6,8 @@
   padding: 0 16px;
   padding-top: 7px;
 }
+.mat-fab {
+  right: 20px;
+  bottom: 20px;
+  position: fixed !important;
+}
