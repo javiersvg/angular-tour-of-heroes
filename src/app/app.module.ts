@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
+import { HeroesComponent, NewHeroDialog } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroService } from './hero.service';
 import { MessagesComponent } from './messages/messages.component';
@@ -29,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    SigninComponent
+    SigninComponent,
+    NewHeroDialog
   ],
   imports: [
     BrowserModule,
@@ -40,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     ReactiveFormsModule
   ],
+  entryComponents: [ NewHeroDialog ],
   providers: [ HeroService, MessageService, SigninService ],
   bootstrap: [AppComponent]
 })
