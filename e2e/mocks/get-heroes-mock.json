@@ -1,5 +1,5 @@
 {
-  "expression": "heroes",
+  "expression": "heroes$",
   "method": "GET",
   "isArray": true,
   "responses": {

@@ -1,0 +1,18 @@
+{
+    "expression": "heroes/.*",
+    "method": "DELETE",
+    "isArray": false,
+    "responses": {
+        "delete-hero": {
+            "default": true,
+            "data": {
+                "name": "Javier",
+                "_links": {
+                    "self": {
+                        "href": "api/heroes/1"
+                    }
+                }
+            }
+        }
+    }
+}

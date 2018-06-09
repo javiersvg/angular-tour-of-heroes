@@ -1,0 +1,14 @@
+{
+  "expression": "/heroes/search",
+  "method": "GET",
+  "isArray": true,
+  "responses": {
+    "searh-all-heroes": {
+      "default": true,
+      "headers": {
+        "Content-type": "applciation/json"
+      },
+      "file": "e2e/data/heroes.json"
+    }
+  }
+}
