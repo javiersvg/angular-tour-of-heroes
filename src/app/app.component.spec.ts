@@ -13,6 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
@@ -40,18 +41,19 @@ describe('AppComponent', () => {
       ],
       imports: [
         AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
         MatToolbarModule,
         MatTabsModule,
         MatIconModule,
         MatMenuModule,
         MatGridListModule,
         MatDividerModule,
-        FormsModule,
         MatFormFieldModule,
         MatListModule,
-        ReactiveFormsModule,
         MatAutocompleteModule,
-        HttpClientModule,
+        MatBottomSheetModule,
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },
