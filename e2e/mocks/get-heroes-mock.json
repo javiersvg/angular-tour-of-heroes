@@ -1,0 +1,14 @@
+{
+  "expression": "heroes",
+  "method": "GET",
+  "isArray": true,
+  "responses": {
+    "get-all-heroes": {
+      "default": true,
+      "headers": {
+        "Content-type": "applciation/json"
+      },
+      "file": "e2e/data/heroes.json"
+    }
+  }
+}

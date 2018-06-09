@@ -22,12 +22,15 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
+Run `node server.js` to start the back end mock.
+
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Running docker container
 
 Run `docker run -d --link="tour-of-heroes" -p 80:80 --name="angular-tour-of-heroes" javiersvg/angular-tour-of-heroes`
-and open [localhost](https://localhost) or if you are using docker for windows create a new entry in your hosts file in
+and open [localhost](https://localhost) 
+If you are using docker tools for windows create a new entry in your hosts file in
 `C:\Windows\System32\drivers\etc` for `192.168.99.100      docker` and access [docker](https://docker)
 
 ## Further help
