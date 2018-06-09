@@ -1,9 +1,9 @@
 {
-  "expression": "heroes$",
+  "expression": "/heroes/search",
   "method": "GET",
   "isArray": true,
   "responses": {
-    "get-all-heroes": {
+    "searh-all-heroes": {
       "default": true,
       "headers": {
         "Content-type": "applciation/json"

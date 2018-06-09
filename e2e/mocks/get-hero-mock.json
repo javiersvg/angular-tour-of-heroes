@@ -1,0 +1,18 @@
+{
+    "expression": "heroes/[0-9]",
+    "method": "GET",
+    "isArray": false,
+    "responses": {
+        "get-hero": {
+            "default": true,
+            "data": {
+                "name": "Javier",
+                "_links": {
+                    "self": {
+                        "href": "api/heroes/1"
+                    }
+                }
+            }
+        }
+    }
+}
