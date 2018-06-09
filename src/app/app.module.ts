@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent, NewHeroDialog } from './heroes/heroes.component';
@@ -30,7 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     HeroSearchComponent,
     SigninComponent,
-    NewHeroDialog
+    NewHeroDialog,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     ReactiveFormsModule
   ],
-  entryComponents: [ NewHeroDialog ],
+  entryComponents: [ NewHeroDialog, MessagesComponent ],
   providers: [ HeroService, MessageService, SigninService ],
   bootstrap: [AppComponent]
 })

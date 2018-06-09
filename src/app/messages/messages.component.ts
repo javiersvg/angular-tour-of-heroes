@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MessageService } from '../message.service';
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-messages',
@@ -9,9 +10,13 @@ import { MessageService } from '../message.service';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public messageService: MessageService) {}
+  constructor(
+    public messageService: MessageService,
+    private bottomSheetRef: MatBottomSheetRef<MessagesComponent>) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  close() {
+    this.bottomSheetRef.dismiss();
   }
-
 }
