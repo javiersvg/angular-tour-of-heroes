@@ -2,8 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-heroes',
@@ -41,51 +41,81 @@ export class HeroesComponent implements OnInit {
   }
 
   openDialog(): void {
-    this.dialog.open(NewHeroDialog, {
-      width: '250px'
+    let dialogRef = this.dialog.open(NewHeroDialog, {
+      width: '250px',
+      data: new Hero(),
     })
+    dialogRef.afterClosed().subscribe(hero => {
+      this.heroes.push(hero);
+    });
   }
 }
 
 @Component({
   selector: 'new-hero-dialog',
   template: `
-            <h2>New Hero</h2>
-            <form [formGroup]="heroForm">
-              <div *ngFor="let field of fields" class="form-group">
-                <mat-form-field>
-                  <input matInput [type]="field.type" class="form-control" [formControlName]="field.key"  [placeholder]="field.key">
-                </mat-form-field>
-              </div>
-            </form>
+            <h2 mat-dialog-title>New Hero</h2>
+            <mat-dialog-content>
+              <form [formGroup]="form">
+                <div *ngFor="let field of fields" class="form-group">
+                  <mat-form-field>
+                    <input matInput [type]="field.type" class="form-control" [formControlName]="field.key"  [placeholder]="field.key">
+                  </mat-form-field>
+                </div>
+              </form>
+            </mat-dialog-content>
+            <mat-dialog-actions>
+              <button mat-button [disabled]="!form.valid" (click)="add()">Ok</button>
+              <button mat-button (click)="closeDialog()">Cancel</button>
+            </mat-dialog-actions>
             `
 })
 export class NewHeroDialog {
   fields = [];
-  heroForm: FormGroup;
+  form: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: any) {
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<NewHeroDialog>,
+    private heroService: HeroService) {
       this.createForm();
     }
 
   createForm(): void {
     const controls: any = {};
-    this.fields.push(new FormField('name'));
+    this.fields.push(new FormField('name', this.data.name));
     this.fields.forEach(field => {
-      controls[field.key] = new FormControl('');
+      controls[field.key] = new FormControl(field.value, Validators.required);
     });
-    this.heroForm = this.fb.group(controls);
+    this.form = this.fb.group(controls);
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  add(): void {
+    let entity = new Hero();
+    this.fields.forEach(field => {
+      entity[field.key] = this.form.controls[field.key].value;
+      this.form.controls[field.key].setValue(field.value);
+    })
+    this.heroService.addHero(entity)
+      .subscribe(hero => {
+        this.dialogRef.close(hero);
+      });
   }
 }
 
 class FormField {
   key: string;
+  value: string;
   type: string;
 
-  constructor(key:string, type?: string) {
+  constructor(key:string, value?: string, type?: string) {
     this.key = key;
+    this.value = value || '';
     this.type = type || '';
   }
 }
