@@ -1,0 +1,19 @@
+{
+    "expression": "heroes",
+    "method": "POST",
+    "isArray": false,
+    "responses": {
+        "post-hero": {
+            "default": true,
+            "data": {
+                "id": "a1",
+                "name": "Javier",
+                "_links": {
+                    "self": {
+                        "href": "api/heroes/1"
+                    }
+                }
+            }
+        }
+    }
+}
