@@ -13,6 +13,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { AppRoutingModule } from '../app-routing.module';
@@ -52,7 +53,8 @@ describe('HeroesComponent', () => {
         MatGridListModule,
         MatListModule,
         MatAutocompleteModule,
-        MatInputModule
+        MatInputModule,
+        MatDialogModule
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },
