@@ -23,6 +23,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 import { SigninService } from './signin.service';
 import { MessageService } from './message.service';
@@ -38,6 +39,7 @@ describe('AppComponent', () => {
         HeroesComponent,
         MessagesComponent,
         HeroSearchComponent,
+        HeroFormComponent,
       ],
       imports: [
         AppRoutingModule,

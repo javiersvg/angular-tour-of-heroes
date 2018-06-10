@@ -18,6 +18,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeroesComponent } from '../heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search.component';
+import { HeroFormComponent } from '../hero-form/hero-form.component';
 
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
@@ -33,7 +34,8 @@ describe('HeroSearchComponent', () => {
         HeroDetailComponent,
         DashboardComponent,
         HeroesComponent,
-        HeroSearchComponent
+        HeroSearchComponent,
+        HeroFormComponent
       ],
       imports: [
         AppRoutingModule,

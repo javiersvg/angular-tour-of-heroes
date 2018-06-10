@@ -18,6 +18,7 @@ import { SigninService } from './signin.service';
 
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeroSearchComponent,
     SigninComponent,
     NewHeroDialog,
+    HeroFormComponent,
   ],
   imports: [
     BrowserModule,

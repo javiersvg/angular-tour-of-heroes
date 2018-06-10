@@ -8,13 +8,6 @@
   </mat-list-item>
 </mat-nav-list>
 <mat-divider></mat-divider>
-<mat-form-field class="hero-name-input">
-  <input #heroName matInput placeholder="Hero name" (keyup.enter)="add(heroName.value); heroName.value=''">
-</mat-form-field>
-<!-- (click) passes input value to add() and then clears the input -->
-<button mat-button (click)="add(heroName.value); heroName.value=''">
-    <mat-icon>add</mat-icon>
-</button>
 <button mat-fab (click)="openDialog()">
   <mat-icon>add</mat-icon>
 </button>
