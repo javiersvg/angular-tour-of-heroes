@@ -1,10 +1,6 @@
 <div *ngIf="hero" class="details">
   <h2>{{ hero.name | uppercase }} Details</h2>
-  <div>
-    <mat-form-field>
-      <input matInput [(ngModel)]="hero.name" placeholder="name">
-    </mat-form-field>
-  </div>
+  <app-hero-form [entity]="hero"></app-hero-form>
   <button mat-button (click)="save()">save</button>
   <button mat-button (click)="goBack()">go back</button>
 </div>

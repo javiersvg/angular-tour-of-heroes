@@ -56,23 +56,16 @@ export class HeroesComponent implements OnInit {
   template: `
             <h2 mat-dialog-title>New Hero</h2>
             <mat-dialog-content>
-              <form [formGroup]="form">
-                <div *ngFor="let field of fields" class="form-group">
-                  <mat-form-field>
-                    <input matInput [type]="field.type" class="form-control" [formControlName]="field.key"  [placeholder]="field.key">
-                  </mat-form-field>
-                </div>
-              </form>
+              <app-hero-form [entity]="entity"></app-hero-form>
             </mat-dialog-content>
             <mat-dialog-actions>
-              <button mat-button [disabled]="!form.valid" (click)="add()">Ok</button>
+              <button mat-button [disabled]="entity.name" (click)="add()">Ok</button>
               <button mat-button (click)="closeDialog()">Cancel</button>
             </mat-dialog-actions>
             `
 })
 export class NewHeroDialog {
-  fields = [];
-  form: FormGroup;
+  entity: Hero;
 
   constructor(
     private fb: FormBuilder,
@@ -83,12 +76,7 @@ export class NewHeroDialog {
     }
 
   createForm(): void {
-    const controls: any = {};
-    this.fields.push(new FormField('name', this.data.name));
-    this.fields.forEach(field => {
-      controls[field.key] = new FormControl(field.value, Validators.required);
-    });
-    this.form = this.fb.group(controls);
+    this.entity = new Hero();
   }
 
   closeDialog() {
@@ -96,26 +84,9 @@ export class NewHeroDialog {
   }
 
   add(): void {
-    let entity = new Hero();
-    this.fields.forEach(field => {
-      entity[field.key] = this.form.controls[field.key].value;
-      this.form.controls[field.key].setValue(field.value);
-    })
-    this.heroService.addHero(entity)
+    this.heroService.addHero(this.entity)
       .subscribe(hero => {
         this.dialogRef.close(hero);
       });
-  }
-}
-
-class FormField {
-  key: string;
-  value: string;
-  type: string;
-
-  constructor(key:string, value?: string, type?: string) {
-    this.key = key;
-    this.value = value || '';
-    this.type = type || '';
   }
 }

@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+  <div *ngFor="let field of fields" class="form-group">
+    <mat-form-field>
+      <input matInput [type]="field.type" class="form-control" [formControlName]="field.key"  [placeholder]="field.key">
+    </mat-form-field>
+  </div>
+</form>
