@@ -4,7 +4,7 @@
       *ngFor="let hero of heroes"
       [colspan]="1"
       [rowspan]="1"
-      routerLink="/detail/{{hero.id}}">
+      [routerLink]="hero._links.self.path">
       {{hero.name}}
   </mat-grid-tile>
 </mat-grid-list>

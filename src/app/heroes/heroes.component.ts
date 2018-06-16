@@ -22,14 +22,14 @@ export class HeroesComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
+    this.heroService.getAll()
     .subscribe(heroes => this.heroes = heroes);
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
+    this.heroService.add({ name } as Hero)
       .subscribe(hero => {
         this.heroes.push(hero);
       });
@@ -37,7 +37,7 @@ export class HeroesComponent implements OnInit {
 
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero).subscribe();
+    this.heroService.delete(hero).subscribe();
   }
 
   openDialog(): void {
@@ -59,7 +59,7 @@ export class HeroesComponent implements OnInit {
               <app-hero-form [entity]="entity"></app-hero-form>
             </mat-dialog-content>
             <mat-dialog-actions>
-              <button mat-button [disabled]="entity.name" (click)="add()">Ok</button>
+              <button mat-button [disabled]="!entity.name" (click)="add()">Ok</button>
               <button mat-button (click)="closeDialog()">Cancel</button>
             </mat-dialog-actions>
             `
@@ -84,7 +84,7 @@ export class NewHeroDialog {
   }
 
   add(): void {
-    this.heroService.addHero(this.entity)
+    this.heroService.add(this.entity)
       .subscribe(hero => {
         this.dialogRef.close(hero);
       });

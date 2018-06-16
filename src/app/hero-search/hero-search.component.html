@@ -4,7 +4,7 @@
       <input type="search" placeholder="Search Hero" matInput [formControl]="myControl" [matAutocomplete]="auto">
       <mat-icon matSuffix>search</mat-icon>
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option" routerLink="/detail/{{option.id}}">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option" [routerLink]="option._links.self.path">
           {{ option.name }}
         </mat-option>
       </mat-autocomplete>
