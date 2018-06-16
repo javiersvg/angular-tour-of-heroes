@@ -8,29 +8,27 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { HeroFormComponent } from './hero-form.component';
 
 import { InMemoryDataService } from '../in-memory-data.service';
+import { Hero } from '../hero';
 
 describe('HeroFormComponent', () => {
   let component: HeroFormComponent;
   let fixture: ComponentFixture<HeroFormComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({      
-      declarations: [ HeroFormComponent ],
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       imports: [ 
         FormsModule, 
-        ReactiveFormsModule, 
-        MatFormFieldModule,
-        HttpClientInMemoryWebApiModule.forRoot(
-          InMemoryDataService, { dataEncapsulation: false }
-        ), ],
-    })
-    .compileComponents();
-  }));
+        ReactiveFormsModule,
+        MatFormFieldModule ],      
+      declarations: [ HeroFormComponent ]
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeroFormComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.entity = new Hero();
+    component.ngOnInit();
   });
 
   it('should create', () => {
