@@ -1,5 +1,5 @@
 <mat-nav-list>
-  <mat-list-item *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
+  <mat-list-item *ngFor="let hero of heroes" [routerLink]="hero._links.self.path">
     {{hero.name}}
     <span class="spacer"></span>
     <button mat-button title="delete hero" (click)="delete(hero)">

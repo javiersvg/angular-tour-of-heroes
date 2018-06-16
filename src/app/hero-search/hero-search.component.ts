@@ -39,7 +39,7 @@ export class HeroSearchComponent implements OnInit {
   }
 
   filter(name: string): Observable<Hero[]> {
-    return this.heroService.searchHeroes(name);
+    return this.heroService.search(name);
   }
 
 }

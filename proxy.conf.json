@@ -1,13 +1,8 @@
 {
     "/api": {
-        "target": "http://localhost:3000",
+        "target": "http://localhost:8082",
         "secure": false,
         "pathRewrite": {"^/api" : ""},
         "headers": {"x-forwarded-prefix" : "/api"}
-   },
-   "/ngapimock/*": {
-        "target": "http://localhost:3000",
-        "secure": false,
-        "logLevel": "debug"
-  }
+   }
 }
