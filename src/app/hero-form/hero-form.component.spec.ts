@@ -21,7 +21,8 @@ describe('HeroFormComponent', () => {
         ReactiveFormsModule,
         MatFormFieldModule ],      
       declarations: [ HeroFormComponent ]
-    });
+    })
+    .compileComponents();
   });
 
   beforeEach(() => {
