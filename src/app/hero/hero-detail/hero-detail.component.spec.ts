@@ -12,17 +12,18 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
-import { AppRoutingModule } from '../app-routing.module';
-import { HeroDetailComponent } from './hero-detail.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { HeroesComponent } from '../heroes/heroes.component';
-import { HeroSearchComponent } from '../hero-search/hero-search.component';
-import { HeroFormComponent } from '../hero-form/hero-form.component';
+import { HeroModule } from '../../hero/hero.module';
 
-import { SigninService } from '../signin.service';
-import { MessageService } from '../message.service';
-import { HeroService } from '../hero.service';
-import { InMemoryDataService } from '../in-memory-data.service';
+import { AppRoutingModule } from '../../app-routing.module';
+import { HeroDetailComponent } from './hero-detail.component';
+import { DashboardComponent } from '../../dashboard/dashboard.component';
+import { HeroesComponent } from '../heroes/heroes.component';
+import { HeroSearchComponent } from '../../hero-search/hero-search.component';
+
+import { SigninService } from '../../signin.service';
+import { MessageService } from '../../message.service';
+import { HeroService } from '../../hero/hero.service';
+import { InMemoryDataService } from '../../in-memory-data.service';
 
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
@@ -31,11 +32,8 @@ describe('HeroDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        HeroDetailComponent,
         DashboardComponent,
-        HeroesComponent,
         HeroSearchComponent,
-        HeroFormComponent
       ],
       imports: [
         AppRoutingModule,
@@ -50,7 +48,8 @@ describe('HeroDetailComponent', () => {
         MatFormFieldModule,
         MatGridListModule,
         MatListModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        HeroModule
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },

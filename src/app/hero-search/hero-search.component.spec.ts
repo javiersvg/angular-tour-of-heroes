@@ -13,16 +13,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { HeroModule } from '../hero/hero.module';
+
 import { AppRoutingModule } from '../app-routing.module';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import { HeroesComponent } from '../heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search.component';
-import { HeroFormComponent } from '../hero-form/hero-form.component';
 
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../hero/hero.service';
 
 describe('HeroSearchComponent', () => {
   let component: HeroSearchComponent;
@@ -31,11 +30,8 @@ describe('HeroSearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        HeroDetailComponent,
         DashboardComponent,
-        HeroesComponent,
         HeroSearchComponent,
-        HeroFormComponent
       ],
       imports: [
         AppRoutingModule,
@@ -49,7 +45,8 @@ describe('HeroSearchComponent', () => {
         MatGridListModule,
         MatListModule,
         MatAutocompleteModule,
-        MatInputModule
+        MatInputModule,
+        HeroModule
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },

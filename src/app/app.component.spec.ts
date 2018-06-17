@@ -15,15 +15,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
+import { HeroModule } from './hero/hero.module';
+
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
 
 import { SigninService } from './signin.service';
 import { MessageService } from './message.service';
@@ -35,11 +34,8 @@ describe('AppComponent', () => {
         AppComponent,
         SigninComponent,
         DashboardComponent,
-        HeroDetailComponent,
-        HeroesComponent,
         MessagesComponent,
         HeroSearchComponent,
-        HeroFormComponent,
       ],
       imports: [
         AppRoutingModule,
@@ -56,6 +52,7 @@ describe('AppComponent', () => {
         MatListModule,
         MatAutocompleteModule,
         MatBottomSheetModule,
+        HeroModule,
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },

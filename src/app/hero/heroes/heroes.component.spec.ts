@@ -15,17 +15,17 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
-import { AppRoutingModule } from '../app-routing.module';
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { HeroesComponent } from './heroes.component';
-import { HeroSearchComponent } from '../hero-search/hero-search.component';
-import { HeroFormComponent } from '../hero-form/hero-form.component';
+import { HeroModule } from '../hero.module';
 
-import { SigninService } from '../signin.service';
-import { MessageService } from '../message.service';
+import { AppRoutingModule } from '../../app-routing.module';
+import { DashboardComponent } from '../../dashboard/dashboard.component';
+import { HeroesComponent } from './heroes.component';
+import { HeroSearchComponent } from '../../hero-search/hero-search.component';
+
+import { SigninService } from '../../signin.service';
+import { MessageService } from '../../message.service';
 import { HeroService } from '../hero.service';
-import { InMemoryDataService }  from '../in-memory-data.service';
+import { InMemoryDataService }  from '../../in-memory-data.service';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -34,11 +34,8 @@ describe('HeroesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        HeroDetailComponent,
         DashboardComponent,
-        HeroesComponent,
         HeroSearchComponent,
-        HeroFormComponent
       ],
       imports: [
         AppRoutingModule,
@@ -56,7 +53,8 @@ describe('HeroesComponent', () => {
         MatListModule,
         MatAutocompleteModule,
         MatInputModule,
-        MatDialogModule
+        MatDialogModule,
+        HeroModule
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },
