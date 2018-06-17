@@ -3,14 +3,10 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { fromPromise } from 'rxjs/observable/fromPromise';
-import { catchError, map, tap, mergeMap } from 'rxjs/operators';
+import { catchError, tap, mergeMap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
 import { Profile } from './profile';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 
 @Injectable()
 export class SigninService {

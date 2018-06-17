@@ -59,8 +59,8 @@ describe('AppComponent', () => {
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },
-        SigninService,
         MessageService,
+        SigninService,
       ],
     }).compileComponents();
   }));

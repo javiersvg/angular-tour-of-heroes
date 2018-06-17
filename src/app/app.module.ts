@@ -3,23 +3,22 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent, NewHeroDialog } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroService } from './hero.service';
 import { MessagesComponent } from './messages/messages.component';
-import { MessageService } from './message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { SigninComponent } from './signin/signin.component';
-import { SigninService } from './signin.service';
-
-import { MaterialModule } from './material.module';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 
+import { HeroService } from './hero.service';
+import { MessageService } from './message.service';
+import { SigninService } from './signin.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,7 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   entryComponents: [ NewHeroDialog, MessagesComponent ],
   providers: [ HeroService, MessageService, SigninService ],
