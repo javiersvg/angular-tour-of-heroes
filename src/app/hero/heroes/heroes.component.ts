@@ -41,10 +41,10 @@ export class HeroesComponent implements OnInit {
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(NewHeroDialog, {
+    const dialogRef = this.dialog.open(NewHeroDialog, {
       width: '250px',
       data: new Hero(),
-    })
+    });
     dialogRef.afterClosed().subscribe(hero => {
       this.heroes.push(hero);
     });

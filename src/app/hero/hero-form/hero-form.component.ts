@@ -18,7 +18,7 @@ export class HeroFormComponent implements OnInit {
     const controls: any = {};
     this.fields.push(new FormField('name', this.entity.name));
     this.fields.forEach(field => {
-      let control = new FormControl(field.value, Validators.required)
+      const control = new FormControl(field.value, Validators.required);
       control.valueChanges.subscribe(val => this.entity[field.key] = val);
       controls[field.key] = control;
     });
@@ -31,7 +31,7 @@ class FormField {
   value: string;
   type: string;
 
-  constructor(key:string, value?: string, type?: string) {
+  constructor(key: string, value?: string, type?: string) {
     this.key = key;
     this.value = value || '';
     this.type = type || '';

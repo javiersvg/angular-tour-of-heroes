@@ -16,7 +16,7 @@ export class AppComponent {
   title = 'Tour of Heroes';
   bottomSheetRef: MatBottomSheetRef<MessagesComponent>;
 
-  constructor(private bottomSheet: MatBottomSheet){}
+  constructor(private bottomSheet: MatBottomSheet) {}
 
   navLinks = [
     new Link('DASHBOARD', 'dashboard'),
@@ -24,7 +24,7 @@ export class AppComponent {
   ];
 
   toggleMessages() {
-    if(this.bottomSheetRef) {
+    if (this.bottomSheetRef) {
       this.bottomSheetRef.dismiss();
     } else {
       this.bottomSheetRef = this.bottomSheet.open(MessagesComponent);

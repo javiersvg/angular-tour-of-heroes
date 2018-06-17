@@ -20,7 +20,7 @@ describe('MessagesComponent', () => {
   }));
 
   beforeEach(inject([MatBottomSheet],
-    (bs: MatBottomSheet,) => {
+    (bs: MatBottomSheet, ) => {
       bottomSheet = bs;
     }));
 
