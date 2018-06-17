@@ -13,50 +13,50 @@ export class HeroService  extends HalService<Hero> {
   constructor(
     http: HttpClient,
     private messageService: MessageService) {
-      super(http, "heroes");
+      super(http, 'heroes');
   }
 
-  getAll():Observable<Hero[]> {
+  getAll(): Observable<Hero[]> {
     return super.getAll().pipe(
       tap(_ => this.log(`fetched entities`)),
       catchError(this.handleError('getAll', []))
     );
   }
-  
-  get(id: string):Observable<Hero> {
+
+  get(id: string): Observable<Hero> {
     return super.get(id).pipe(
       tap(_ => this.log(`fetched entity id=${id}`)),
       catchError(this.handleError<Hero>(`get id=${id}`))
     );
   }
 
-  update(entity: Hero):Observable<Hero> {
+  update(entity: Hero): Observable<Hero> {
     return super.update(entity).pipe(
       tap(_ => this.log(`updated entity id=${entity._links.self}`)),
       catchError(this.handleError<Hero>('update')));
   }
 
-  add(entity: Hero):Observable<Hero> {
+  add(entity: Hero): Observable<Hero> {
     return super.add(entity).pipe(
       tap((newEntity: Hero) => this.log(`added entity w/ id=${newEntity._links.self}`)),
       catchError(this.handleError<Hero>('add'))
     );
   }
 
-  delete(enity: string | Hero):Observable<Hero> {
+  delete(enity: string | Hero): Observable<Hero> {
     return super.delete(enity).pipe(
       tap(_ => this.log(`deleted entity id=${enity}`)),
       catchError(this.handleError<Hero>('delete'))
     );
   }
 
-  search(term: string):Observable<Hero[]> {
+  search(term: string): Observable<Hero[]> {
     return super.search(term).pipe(
       tap(_ => this.log(`found entities matching "${term}"`)),
       catchError(this.handleError<Hero[]>('search', []))
-    );;
+    );
   }
-  
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -76,7 +76,7 @@ export class HeroService  extends HalService<Hero> {
       return of(result as T);
     };
   }
-  
+
   /** Log a HalService message with the MessageService */
   private log(message: string) {
     this.messageService.add('HalService: ' + message);

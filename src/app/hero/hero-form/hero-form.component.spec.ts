@@ -14,10 +14,10 @@ describe('HeroFormComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ 
-        FormsModule, 
+      imports: [
+        FormsModule,
         ReactiveFormsModule,
-        MatFormFieldModule ],      
+        MatFormFieldModule ],
       declarations: [ HeroFormComponent ]
     })
     .compileComponents();
