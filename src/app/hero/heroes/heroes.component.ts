@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
-import { Hero } from '../hero';
+import { Hero } from '../../hero';
 import { HeroService } from '../hero.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-heroes',

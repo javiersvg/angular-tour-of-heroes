@@ -7,30 +7,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
-import { HeroesComponent, NewHeroDialog } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { SigninComponent } from './signin/signin.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
 
-import { HeroService } from './hero.service';
 import { MessageService } from './message.service';
 import { SigninService } from './signin.service';
+import { HeroModule } from './hero/hero.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
     SigninComponent,
-    NewHeroDialog,
-    HeroFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,9 +33,10 @@ import { SigninService } from './signin.service';
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
+    HeroModule,
   ],
-  entryComponents: [ NewHeroDialog, MessagesComponent ],
-  providers: [ HeroService, MessageService, SigninService ],
+  entryComponents: [ MessagesComponent ],
+  providers: [ MessageService, SigninService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,16 +14,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 
+import { HeroModule } from '../hero/hero.module';
+
 import { DashboardComponent } from './dashboard.component';
 import { HeroSearchComponent } from '../hero-search/hero-search.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
-import { HeroesComponent } from '../heroes/heroes.component';
-import { HeroFormComponent } from '../hero-form/hero-form.component';
 
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
-import { HeroService } from '../hero.service';
+import { HeroService } from '../hero/hero.service';
 import { InMemoryDataService }  from '../in-memory-data.service';
 
 describe('DashboardComponent', () => {
@@ -35,9 +34,6 @@ describe('DashboardComponent', () => {
       declarations: [
         DashboardComponent,
         HeroSearchComponent,
-        HeroDetailComponent,
-        HeroesComponent,
-        HeroFormComponent
       ],
       imports: [
         AppRoutingModule,
@@ -55,6 +51,7 @@ describe('DashboardComponent', () => {
         MatDividerModule,
         MatListModule,
         MatInputModule,
+        HeroModule,
       ],
       providers: [
         { provide: APP_BASE_HREF, useValue : '/' },
