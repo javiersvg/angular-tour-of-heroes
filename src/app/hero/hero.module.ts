@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 import { HeroFormComponent } from './hero-form/hero-form.component';
 
@@ -21,7 +23,9 @@ import { HeroesComponent, NewHeroDialog } from './heroes/heroes.component';
     MatFormFieldModule,
     MatListModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule
   ],
   declarations: [
     HeroFormComponent,

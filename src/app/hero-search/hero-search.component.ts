@@ -6,7 +6,7 @@ import {startWith}    from 'rxjs/operators/startWith';
 import {map}          from 'rxjs/operators/map';
 
 import {
-   debounceTime, distinctUntilChanged, switchMap
+   switchMap
  } from 'rxjs/operators';
 
 import { Hero } from '../hero';
