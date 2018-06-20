@@ -13,12 +13,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material';
 
 import { HeroModule } from '../hero/hero.module';
+import { AppRoutingModule } from '../app-routing.module';
 
 import { DashboardComponent } from './dashboard.component';
 import { HeroSearchComponent } from '../hero-search/hero-search.component';
-import { AppRoutingModule } from '../app-routing.module';
+import { TohDashboardComponent } from '../toh-dashboard/toh-dashboard.component';
 
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
@@ -34,6 +37,7 @@ describe('DashboardComponent', () => {
       declarations: [
         DashboardComponent,
         HeroSearchComponent,
+        TohDashboardComponent
       ],
       imports: [
         AppRoutingModule,
@@ -51,6 +55,8 @@ describe('DashboardComponent', () => {
         MatDividerModule,
         MatListModule,
         MatInputModule,
+        MatCardModule,
+        MatMenuModule,
         HeroModule,
       ],
       providers: [

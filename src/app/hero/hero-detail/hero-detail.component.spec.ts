@@ -11,14 +11,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
 
 import { HeroModule } from '../../hero/hero.module';
 
 import { AppRoutingModule } from '../../app-routing.module';
 import { HeroDetailComponent } from './hero-detail.component';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { HeroesComponent } from '../heroes/heroes.component';
 import { HeroSearchComponent } from '../../hero-search/hero-search.component';
+import { TohDashboardComponent } from '../../toh-dashboard/toh-dashboard.component';
 
 import { SigninService } from '../../signin.service';
 import { MessageService } from '../../message.service';
@@ -34,6 +36,7 @@ describe('HeroDetailComponent', () => {
       declarations: [
         DashboardComponent,
         HeroSearchComponent,
+        TohDashboardComponent
       ],
       imports: [
         AppRoutingModule,
@@ -49,6 +52,8 @@ describe('HeroDetailComponent', () => {
         MatGridListModule,
         MatListModule,
         MatAutocompleteModule,
+        MatMenuModule,
+        MatCardModule,
         HeroModule
       ],
       providers: [

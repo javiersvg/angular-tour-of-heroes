@@ -12,6 +12,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { HeroModule } from '../hero/hero.module';
 
@@ -22,6 +24,7 @@ import { HeroSearchComponent } from './hero-search.component';
 import { SigninService } from '../signin.service';
 import { MessageService } from '../message.service';
 import { HeroService } from '../hero/hero.service';
+import { TohDashboardComponent } from '../toh-dashboard/toh-dashboard.component';
 
 describe('HeroSearchComponent', () => {
   let component: HeroSearchComponent;
@@ -32,6 +35,7 @@ describe('HeroSearchComponent', () => {
       declarations: [
         DashboardComponent,
         HeroSearchComponent,
+        TohDashboardComponent
       ],
       imports: [
         AppRoutingModule,
@@ -46,6 +50,8 @@ describe('HeroSearchComponent', () => {
         MatListModule,
         MatAutocompleteModule,
         MatInputModule,
+        MatCardModule,
+        MatMenuModule,
         HeroModule
       ],
       providers: [
