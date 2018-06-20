@@ -16,6 +16,7 @@ import { SigninComponent } from './signin/signin.component';
 import { MessageService } from './message.service';
 import { SigninService } from './signin.service';
 import { HeroModule } from './hero/hero.module';
+import { TohDashboardComponent } from './toh-dashboard/toh-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HeroModule } from './hero/hero.module';
     DashboardComponent,
     HeroSearchComponent,
     SigninComponent,
+    TohDashboardComponent,
   ],
   imports: [
     BrowserModule,
