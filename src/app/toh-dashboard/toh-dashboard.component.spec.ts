@@ -5,7 +5,15 @@ import { APP_BASE_HREF } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { MatGridListModule, MatMenuModule, MatIconModule, MatCardModule, MatAutocompleteModule, MatOptionModule, MatFormFieldModule, MatListModule, MatInputModule } from '@angular/material';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppRoutingModule } from '../app-routing.module';
 import { HeroModule } from '../hero/hero.module';
