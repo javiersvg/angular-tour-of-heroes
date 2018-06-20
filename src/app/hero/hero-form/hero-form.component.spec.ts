@@ -6,7 +6,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { HeroFormComponent } from './hero-form.component';
 
-import { Hero } from '../../hero';
+import { Hero } from '../../hero/hero';
 
 describe('HeroFormComponent', () => {
   let component: HeroFormComponent;

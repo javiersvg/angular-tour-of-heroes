@@ -1,4 +1,4 @@
-import { HalElement } from './hal/hal.element';
+import { HalElement } from '../hal/hal.element';
 
 export class Hero extends HalElement {
     id: string;

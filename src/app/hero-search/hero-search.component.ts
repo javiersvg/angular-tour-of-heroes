@@ -9,7 +9,7 @@ import {
    switchMap
  } from 'rxjs/operators';
 
-import { Hero } from '../hero';
+import { Hero } from '../hero/hero';
 import { HeroService } from '../hero/hero.service';
 
 export class User {
