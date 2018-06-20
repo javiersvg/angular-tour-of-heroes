@@ -14,6 +14,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { HeroModule } from '../hero.module';
 
@@ -21,6 +23,7 @@ import { AppRoutingModule } from '../../app-routing.module';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroSearchComponent } from '../../hero-search/hero-search.component';
+import { TohDashboardComponent } from '../../toh-dashboard/toh-dashboard.component';
 
 import { SigninService } from '../../signin.service';
 import { MessageService } from '../../message.service';
@@ -36,6 +39,7 @@ describe('HeroesComponent', () => {
       declarations: [
         DashboardComponent,
         HeroSearchComponent,
+        TohDashboardComponent
       ],
       imports: [
         AppRoutingModule,
@@ -54,6 +58,8 @@ describe('HeroesComponent', () => {
         MatAutocompleteModule,
         MatInputModule,
         MatDialogModule,
+        MatCardModule,
+        MatMenuModule,
         HeroModule
       ],
       providers: [
@@ -62,8 +68,7 @@ describe('HeroesComponent', () => {
         MessageService,
         HeroService
       ],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

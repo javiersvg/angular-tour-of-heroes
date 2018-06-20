@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatCardModule } from '@angular/material/card';
 
 import { HeroModule } from './hero/hero.module';
 
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { TohDashboardComponent } from './toh-dashboard/toh-dashboard.component';
 
 import { SigninService } from './signin.service';
 import { MessageService } from './message.service';
@@ -36,6 +38,7 @@ describe('AppComponent', () => {
         DashboardComponent,
         MessagesComponent,
         HeroSearchComponent,
+        TohDashboardComponent
       ],
       imports: [
         AppRoutingModule,
@@ -52,6 +55,7 @@ describe('AppComponent', () => {
         MatListModule,
         MatAutocompleteModule,
         MatBottomSheetModule,
+        MatCardModule,
         HeroModule,
       ],
       providers: [
