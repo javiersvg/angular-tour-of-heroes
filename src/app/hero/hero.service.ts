@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
-import { Hero } from '../hero';
+import { Hero } from '../hero/hero';
 import { MessageService } from '../message.service';
 import { HalService } from '../hal/hal.service';
 import { of } from 'rxjs/observable/of';
