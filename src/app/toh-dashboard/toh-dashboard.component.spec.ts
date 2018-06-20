@@ -31,7 +31,7 @@ describe('TohDashboardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         TohDashboardComponent,
         HeroSearchComponent,
         DashboardComponent,

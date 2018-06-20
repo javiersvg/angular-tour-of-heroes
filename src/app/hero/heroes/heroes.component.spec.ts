@@ -28,7 +28,7 @@ import { TohDashboardComponent } from '../../toh-dashboard/toh-dashboard.compone
 import { SigninService } from '../../signin.service';
 import { MessageService } from '../../message.service';
 import { HeroService } from '../hero.service';
-import { InMemoryDataService }  from '../../in-memory-data.service';
+import { InMemoryDataService } from '../../in-memory-data.service';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class TohDashboardComponent {
   cards = [
     { title: 'Card 2', cols: 1, rows: 1 },
-    { title: 'Card 3', cols: 1, rows: 2, image: "https://material.angular.io/assets/img/examples/shiba2.jpg" },
+    { title: 'Card 3', cols: 1, rows: 2, image: 'https://material.angular.io/assets/img/examples/shiba2.jpg' },
     { title: 'Card 4', cols: 1, rows: 1 }
   ];
 }
