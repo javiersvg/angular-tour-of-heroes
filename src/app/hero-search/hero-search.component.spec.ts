@@ -18,7 +18,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HeroModule } from '../hero/hero.module';
 
 import { AppRoutingModule } from '../app-routing.module';
-import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search.component';
 
 import { SigninService } from '../signin.service';
@@ -33,7 +32,6 @@ describe('HeroSearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DashboardComponent,
         HeroSearchComponent,
         TohDashboardComponent
       ],

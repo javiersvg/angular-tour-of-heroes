@@ -20,7 +20,6 @@ import { HeroModule } from '../hero/hero.module';
 
 import { TohDashboardComponent } from './toh-dashboard.component';
 import { HeroSearchComponent } from '../hero-search/hero-search.component';
-import { DashboardComponent } from '../dashboard/dashboard.component';
 
 import { MessageService } from '../message.service';
 import { InMemoryDataService } from '../in-memory-data.service';
@@ -34,7 +33,6 @@ describe('TohDashboardComponent', () => {
       declarations: [
         TohDashboardComponent,
         HeroSearchComponent,
-        DashboardComponent,
       ],
       imports: [
         AppRoutingModule,

@@ -18,7 +18,6 @@ import { HeroModule } from '../../hero/hero.module';
 
 import { AppRoutingModule } from '../../app-routing.module';
 import { HeroDetailComponent } from './hero-detail.component';
-import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { HeroSearchComponent } from '../../hero-search/hero-search.component';
 import { TohDashboardComponent } from '../../toh-dashboard/toh-dashboard.component';
 
@@ -34,7 +33,6 @@ describe('HeroDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DashboardComponent,
         HeroSearchComponent,
         TohDashboardComponent
       ],

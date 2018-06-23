@@ -1,9 +1,0 @@
-<mat-grid-list cols="4" rowHeight="120px">
-  <mat-grid-tile
-      *ngFor="let hero of heroes"
-      [colspan]="1"
-      [rowspan]="1"
-      [routerLink]="hero._links.self.path">
-      {{hero.name}}
-  </mat-grid-tile>
-</mat-grid-list>
