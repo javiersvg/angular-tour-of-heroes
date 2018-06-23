@@ -21,7 +21,6 @@ import { HeroModule } from './hero/hero.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { TohDashboardComponent } from './toh-dashboard/toh-dashboard.component';
@@ -35,7 +34,6 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         SigninComponent,
-        DashboardComponent,
         MessagesComponent,
         HeroSearchComponent,
         TohDashboardComponent

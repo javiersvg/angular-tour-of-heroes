@@ -9,7 +9,6 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { SigninComponent } from './signin/signin.component';
 
@@ -22,7 +21,6 @@ import { TohDashboardComponent } from './toh-dashboard/toh-dashboard.component';
   declarations: [
     AppComponent,
     MessagesComponent,
-    DashboardComponent,
     HeroSearchComponent,
     SigninComponent,
     TohDashboardComponent,

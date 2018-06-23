@@ -15,3 +15,11 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+mat-grid-tile {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+mat-grid-tile:hover {
+  background: rgb(243, 243, 243);
+  cursor: pointer;
+}
