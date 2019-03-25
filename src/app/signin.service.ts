@@ -29,18 +29,17 @@ export class SigninService {
 
   signInGoogle(): Observable<Profile> {
     const auth2 = gapi.auth2.getAuthInstance();
-    return fromPromise(auth2.grantOfflineAccess()).pipe(
-      mergeMap((resp: any)  => this.signInBackEnd(resp.code))
+    return fromPromise(auth2.signIn()).pipe(
+      mergeMap((resp: gapi.auth2.GoogleUser)  => {
+        return this.signInBackEnd(resp.getAuthResponse());
+      })
     );
   }
 
-  private signInBackEnd(code: string): Observable<Profile> {
-    const params = new HttpParams()
-    .append('code', code)
-      .append('redirect_uri', 'http://localhost:4200');
+  private signInBackEnd(response: gapi.auth2.AuthResponse): Observable<Profile> {
 
-    return this.http.get<Profile>(this.signinUrl, {params: params}).pipe(
-      mergeMap<any, Profile>(_ => this.http.get<Profile>('/api/user')),
+    const headers = new HttpHeaders().append('Authorization', 'Bearer ' + response.id_token)
+    return this.http.get<Profile>('/api/user', {headers: headers}).pipe(
       tap(_ => this.log(`singin success`)),
       catchError(this.handleError<Profile>('signin'))
     );
