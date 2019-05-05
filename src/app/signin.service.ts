@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { fromPromise } from 'rxjs/observable/fromPromise';
-import { catchError, tap, mergeMap } from 'rxjs/operators';
+import { catchError, tap, mergeMap, map } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
 import { Profile } from './profile';
@@ -81,4 +81,9 @@ export class SigninService {
     this.messageService.add('HeroService: ' + message);
   }
 
+}
+
+interface GoogleToken {
+  name: string;
+  picture: string;    
 }

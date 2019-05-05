@@ -27,7 +27,8 @@ export class HalService<T extends HalElement> {
     getAll(): Observable<T[]> {
       return this.http.get<HalCollection<T>>(this.serviceUri + this.serviceName)
         .pipe(
-          map(result => result._embedded[this.serviceName] as T[]),
+          map(result => result._embedded[result._links.curies[0].name + ":" + this.serviceName] as T[]),
+          map(entities => entities? entities : []),
           tap(entities => entities.forEach( entity => entity._links.self.path = this.getPath(entity)))
         );
     }
