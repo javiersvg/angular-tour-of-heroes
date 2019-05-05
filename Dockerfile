@@ -1,6 +1,14 @@
+FROM node:alpine as build
+workdir /workspace/app
+
+COPY package.json .
+COPY src src
+
+RUN npm run-script build
+
 FROM nginx   
 
-ARG DIST_FOLDER
+ARG DIST_FOLDER=/workspace/app/dist 
 
 ## Copy our default nginx config
 COPY nginx/default.conf /etc/nginx/conf.d/
