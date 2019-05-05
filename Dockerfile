@@ -4,6 +4,7 @@ workdir /workspace/app
 COPY package.json .
 COPY src src
 
+RUN npm install
 RUN npm run-script build
 
 FROM nginx   
