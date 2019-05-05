@@ -2,6 +2,7 @@ FROM node:alpine as build
 workdir /workspace/app
 
 COPY package.json .
+COPY angular.json .
 COPY src src
 
 RUN npm install
