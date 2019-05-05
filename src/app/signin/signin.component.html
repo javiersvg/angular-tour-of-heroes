@@ -3,7 +3,7 @@
 </div>
 <div *ngIf="profile">
   <button mat-button [matMenuTriggerFor]="menu">
-    <img mat-card-avatar  src="{{profile.picture}}"> {{profile.username}}
+    <img mat-card-avatar  src="{{profile.imageUrl}}"> {{profile.name}}
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="signOut()">Sign Out</button>
