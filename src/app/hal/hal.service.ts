@@ -77,7 +77,7 @@ export class HalService<T extends HalElement> {
       const params = new HttpParams().set('name', term);
       const url = `${this.serviceUri + this.serviceName}/search/findByNameLike`;
       return this.http.get<HalCollection<T>>(url, {params: params}).pipe(
-        map(result => result._embedded[this.serviceName]),
+        map(result => result._embedded[result._links.curies[0].name + ":" + this.serviceName]),
         tap(entities => entities.forEach( entity => entity._links.self.path = this.getPath(entity)))
       );
     }
