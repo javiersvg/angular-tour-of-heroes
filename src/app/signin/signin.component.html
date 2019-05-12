@@ -5,7 +5,7 @@
   <button mat-button [matMenuTriggerFor]="menu">
     <img mat-card-avatar  src="{{profile.imageUrl}}"> {{profile.name}}
   </button>
-  <mat-menu #menu="matMenu">
+  <mat-menu #menu="matMenu" [overlapTrigger]="false">
     <button mat-menu-item (click)="signOut()">Sign Out</button>
   </mat-menu>
 </div>
