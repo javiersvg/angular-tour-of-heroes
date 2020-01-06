@@ -15,6 +15,7 @@ import { SigninComponent } from './signin/signin.component';
 
 import { MessageService } from './message.service';
 import { SigninService } from './signin.service';
+import { httpInterceptorProviders } from './http-inteceptors';
 import { HeroModule } from './hero/hero.module';
 import { TohDashboardComponent } from './toh-dashboard/toh-dashboard.component';
 
@@ -38,7 +39,7 @@ import { TohDashboardComponent } from './toh-dashboard/toh-dashboard.component';
     HeroModule,
   ],
   entryComponents: [ MessagesComponent ],
-  providers: [ MessageService, SigninService ],
+  providers: [ MessageService, SigninService, httpInterceptorProviders ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
