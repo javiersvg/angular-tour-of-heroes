@@ -11,6 +11,7 @@ import { Profile } from './profile';
 @Injectable()
 export class SigninService {
   private signinUrl = 'api/login/google';  // URL to web api
+  private authRespone: gapi.auth2.AuthResponse;
 
   constructor(
     private http: HttpClient,
@@ -30,6 +31,7 @@ export class SigninService {
   signInGoogle(): Observable<Profile> {
     const auth2 = gapi.auth2.getAuthInstance();
     return fromPromise(auth2.signIn()).pipe(
+      tap((resp: gapi.auth2.GoogleUser)  => this.authRespone = resp.getAuthResponse()),
       mergeMap((resp: gapi.auth2.GoogleUser)  => {
         return this.signInBackEnd(resp.getAuthResponse());
       })
@@ -79,6 +81,10 @@ export class SigninService {
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add('HeroService: ' + message);
+  }
+
+  getAuthorizationToken(): string {
+    return this.authRespone? this.authRespone.id_token : null;
   }
 
 }
