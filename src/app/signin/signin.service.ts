@@ -5,13 +5,18 @@ import { of } from 'rxjs/observable/of';
 import { fromPromise } from 'rxjs/observable/fromPromise';
 import { catchError, tap, mergeMap, map } from 'rxjs/operators';
 
-import { MessageService } from './message.service';
-import { Profile } from './profile';
+import { MessageService } from '../message.service';
+import { Profile } from '../profile';
+import { Subject } from 'rxjs/internal/Subject';
 
 @Injectable()
 export class SigninService {
   private signinUrl = 'api/login/google';  // URL to web api
   private authRespone: gapi.auth2.AuthResponse;
+
+  private loginSource = new Subject<void>();
+
+  loginconfirmed$ = this.loginSource.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -32,6 +37,7 @@ export class SigninService {
     const auth2 = gapi.auth2.getAuthInstance();
     return fromPromise(auth2.signIn()).pipe(
       tap((resp: gapi.auth2.GoogleUser)  => this.authRespone = resp.getAuthResponse()),
+      tap((resp: gapi.auth2.GoogleUser)  => this.loginSource.next()),
       mergeMap((resp: gapi.auth2.GoogleUser)  => {
         return this.signInBackEnd(resp.getAuthResponse());
       })
@@ -78,7 +84,7 @@ export class SigninService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
+  /** Log a SigninService message with the MessageService */
   private log(message: string) {
     this.messageService.add('HeroService: ' + message);
   }

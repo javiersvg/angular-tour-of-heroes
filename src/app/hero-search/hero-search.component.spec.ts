@@ -21,7 +21,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeroSearchComponent } from './hero-search.component';
 
-import { SigninService } from '../signin.service';
+import { SigninService } from '../signin/signin.service';
 import { MessageService } from '../message.service';
 import { HeroService } from '../hero/hero.service';
 import { TohDashboardComponent } from '../toh-dashboard/toh-dashboard.component';

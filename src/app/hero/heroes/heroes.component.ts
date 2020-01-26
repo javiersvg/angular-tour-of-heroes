@@ -4,6 +4,7 @@ import { Hero } from '../../hero/hero';
 import { HeroService } from '../hero.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder } from '@angular/forms';
+import { SigninService } from '../../signin/signin.service';
 
 @Component({
   selector: 'app-heroes',
@@ -15,7 +16,12 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private heroService: HeroService,
-    public dialog: MatDialog) { }
+    private signinService: SigninService,
+    public dialog: MatDialog) {
+      this.signinService.loginconfirmed$.subscribe(_ => {
+        this.getHeroes();
+      });
+     }
 
   ngOnInit() {
     this.getHeroes();

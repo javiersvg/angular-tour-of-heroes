@@ -26,7 +26,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { TohDashboardComponent } from './toh-dashboard/toh-dashboard.component';
 
-import { SigninService } from './signin.service';
+import { SigninService } from './signin/signin.service';
 import { MessageService } from './message.service';
 
 describe('AppComponent', () => {

@@ -7,7 +7,7 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { SigninComponent } from './signin.component';
 
-import { SigninService } from '../signin.service';
+import { SigninService } from './signin.service';
 import { MessageService } from '../message.service';
 
 describe('SigninComponent', () => {
