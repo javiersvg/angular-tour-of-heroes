@@ -1,5 +1,5 @@
 import { Component, ElementRef, AfterViewInit, Input } from '@angular/core';
-import { SigninService } from '../signin.service';
+import { SigninService } from './signin.service';
 import { Profile } from '../profile';
 
 @Component({

@@ -25,7 +25,7 @@ import { HeroesComponent } from './heroes.component';
 import { HeroSearchComponent } from '../../hero-search/hero-search.component';
 import { TohDashboardComponent } from '../../toh-dashboard/toh-dashboard.component';
 
-import { SigninService } from '../../signin.service';
+import { SigninService } from '../../signin/signin.service';
 import { MessageService } from '../../message.service';
 import { HeroService } from '../hero.service';
 import { InMemoryDataService } from '../../in-memory-data.service';

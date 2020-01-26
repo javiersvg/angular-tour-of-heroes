@@ -14,7 +14,7 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { SigninComponent } from './signin/signin.component';
 
 import { MessageService } from './message.service';
-import { SigninService } from './signin.service';
+import { SigninService } from './signin/signin.service';
 import { httpInterceptorProviders } from './http-inteceptors';
 import { HeroModule } from './hero/hero.module';
 import { TohDashboardComponent } from './toh-dashboard/toh-dashboard.component';
