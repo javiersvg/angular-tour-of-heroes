@@ -1,8 +1,6 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { map } from 'rxjs/operators/map';
-import { tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
+import { Observable ,  of } from 'rxjs';
+import { map ,  tap, catchError } from 'rxjs/operators';
 
 import { HalElement } from './hal.element';
 import { HalCollection } from './hal.collection';
