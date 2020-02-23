@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { fromPromise } from 'rxjs/observable/fromPromise';
+import { Observable ,  of ,  from as fromPromise } from 'rxjs';
 import { catchError, tap, mergeMap, map } from 'rxjs/operators';
 
 import { MessageService } from '../message.service';
