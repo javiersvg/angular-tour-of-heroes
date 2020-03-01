@@ -2,21 +2,4 @@
 
 language: node_js
 node_js:
-  - "9.3"
-
-script:
-  - npm run build
-
-before_deploy:
-  - cd dist/
-  - tar -zcf angular-tour-of-heroes.tar.gz *
-
-deploy:
-  provider: releases
-  api_key:
-    secure: ${GITHUB_TOKEN}
-  file_glob: true
-  file: angular-tour-of-heroes.tar.gz
-  skip_cleanup: true
-  on:
-    tags: true
+  - "10.18.1"
