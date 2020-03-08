@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/javiersvg/angular-tour-of-heroes.svg?branch=master)](https://travis-ci.org/javiersvg/angular-tour-of-heroes)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=javiersvg_angular-tour-of-heroes&metric=alert_status)](https://sonarcloud.io/dashboard?id=javiersvg_angular-tour-of-heroes)
 [![dependencies Status](https://david-dm.org/javiersvg/angular-tour-of-heroes/status.svg)](https://david-dm.org/javiersvg/angular-tour-of-heroes)
 # AngularTourOfHeroes 
 
