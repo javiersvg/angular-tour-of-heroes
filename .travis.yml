@@ -7,6 +7,10 @@ node_js:
 
 addons:
   chrome: stable
+  sonarcloud:
+    organization: javiersvg-github
+    token:
+      secure: ${SONAR_TOKEN}
 
 cache:
   directories:
@@ -18,3 +22,4 @@ install:
 script:
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
   - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+  - sonar-scanner
