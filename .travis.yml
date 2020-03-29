@@ -35,4 +35,4 @@ script:
   - sonar-scanner
   - docker-compose up -d
   - git clone https://github.com/javiersvg/tour-of-heroes-integration-tests.git
-  - docker run --network=tour-of-heroes-net -v /tour-of-heroes-integration-tests:/tests -w /tests --name tests openjdk:11 ./gradlew test
+  - docker run --network=tour-of-heroes-net -v ./tour-of-heroes-integration-tests:/tests -w /tests --name tests openjdk:11 ./gradlew test
