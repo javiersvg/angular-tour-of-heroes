@@ -1,0 +1,71 @@
+version: '3.6'
+services:
+  selenium-hub:
+    image: selenium/hub:3.141.59-titanium
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+    networks:
+      tour-of-heroes-net:
+        aliases:
+            - selenium-hub
+  chrome:
+    image: selenium/node-chrome-debug:3.141.59-titanium
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "5900:5900"
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    networks:
+      tour-of-heroes-net:
+        aliases:
+            - chrome
+  firefox:
+    image: selenium/node-firefox:3.141.59-titanium
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+    networks:
+      tour-of-heroes-net:
+        aliases:
+            - firefox
+  google:
+    image: javiersvg/google-signin-contract
+    ports:
+      - "2525:2525"
+    networks:
+      tour-of-heroes-net:
+        aliases:
+            - google
+            - accounts.google.com
+  heroes-service:
+    container_name: tour-of-heroes
+    image: javiersvg/tour-of-heroes:stubs-latest
+    ports:
+      - "8080:8080"
+    networks:
+      tour-of-heroes-net:
+        aliases:
+            - tour-of-heroes
+  tour-of-heroes-front-end:
+    build: .
+    ports:
+      - "4200:80"
+    depends_on:
+      - heroes-service
+    networks:
+      tour-of-heroes-net:
+        aliases:
+            - tourofheroes.com
+
+networks:
+  tour-of-heroes-net:
+    name: tour-of-heroes-net
