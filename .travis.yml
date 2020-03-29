@@ -4,6 +4,9 @@ language: node_js
 node_js:
   - "10"
 
+env:
+  - DOCKER_COMPOSE_VERSION=v1.25.2
+
 addons:
   chrome: stable
   sonarcloud:
@@ -13,18 +16,15 @@ addons:
     packages:
       - docker-ce
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.25.2
+cache:
+  directories:
+     - ./node_modules
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-
-cache:
-  directories:
-     - ./node_modules
 
 install:
   - npm install
