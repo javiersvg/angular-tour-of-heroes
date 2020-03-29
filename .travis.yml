@@ -34,4 +34,5 @@ script:
   - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
   - sonar-scanner
   - docker-compose up -d
-  - docker run --network=tour-of-heroes-net -v `pwd`:`pwd` -w `pwd` --name tests openjdk:11 ./gradlew test
+  - git clone https://github.com/javiersvg/tour-of-heroes-integration-tests.git
+  - docker run --network=tour-of-heroes-net -v /tour-of-heroes-integration-tests:/tests -w /tests --name tests openjdk:11 ./gradlew test
