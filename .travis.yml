@@ -4,15 +4,30 @@ language: node_js
 node_js:
   - "10"
 
+services:
+  - docker
+
+env:
+  - DOCKER_COMPOSE_VERSION=v1.25.2
+
 addons:
   chrome: stable
   sonarcloud:
     organization: javiersvg-github
     token: ${SONAR_TOKEN}
+  apt:
+    packages:
+      - docker-ce
 
 cache:
   directories:
      - ./node_modules
+
+before_install:
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 
 install:
   - npm install
@@ -21,3 +36,6 @@ script:
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --code-coverage
   - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
   - sonar-scanner
+  - docker-compose up -d
+  - git clone https://github.com/javiersvg/tour-of-heroes-integration-tests.git
+  - sudo docker run --network=tour-of-heroes-net --volume "${PWD}:/mnt/tests" --workdir /mnt/tests/tour-of-heroes-integration-tests --name tests openjdk:11 ./gradlew clean test
